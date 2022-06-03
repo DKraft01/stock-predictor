@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/stock-predictor/static/css/main.0e490699.css",
+    "main.js": "/stock-predictor/static/js/main.b7d7012f.js",
+    "static/js/787.8c04d4b0.chunk.js": "/stock-predictor/static/js/787.8c04d4b0.chunk.js",
+    "index.html": "/stock-predictor/index.html",
+    "main.0e490699.css.map": "/stock-predictor/static/css/main.0e490699.css.map",
+    "main.b7d7012f.js.map": "/stock-predictor/static/js/main.b7d7012f.js.map",
+    "787.8c04d4b0.chunk.js.map": "/stock-predictor/static/js/787.8c04d4b0.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0e490699.css",
+    "static/js/main.b7d7012f.js"
+  ]
+}
