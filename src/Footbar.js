@@ -1,8 +1,9 @@
 export default function Footbar() {
   return (
     <div className="footbar">
-      Realizado por Daniel Pérez Álvarez <br></br>
-      <br></br>+57 319 708 5727
+      Daniel Anthony Kraft <br></br>
+      <br></br>
+      danielkraft2022@gmail.com
     </div>
   );
 }
