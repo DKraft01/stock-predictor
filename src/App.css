@@ -1,38 +1,148 @@
 .App {
   text-align: center;
+  padding: 1%;
+}
+.foot {
+  text-align: center;
+}
+nav {
+  background-color: rgb(20, 20, 20);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.SearchBar {
+  display: inline-block;
+  position: absolute;
+  top: 4vh;
+  left: 35vw;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.SearchInput {
+  width: 35vw;
+  height: 5vh;
+  border-radius: 1.625rem;
+  background-color: rgb(229, 229, 229);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.HeaderImg {
+  width: auto;
+  height: 10vh;
+  display: inline-block;
+  padding: 1%;
+}
+
+.Container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 1%;
 }
 
-.App-link {
-  color: #61dafb;
+p,
+h4 {
+  margin-left: 15vh;
+  margin-top: 2vw;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h2 {
+  position: relative;
+  top: 12vh;
+  left: -3.5vw;
+  margin-left: 2vhw;
+}
+
+.CompanyPhoto {
+  width: 5vw;
+  height: auto;
+}
+
+button {
+  color: rgb(1, 1, 1);
+
+  background-color: rgba(240, 248, 255, 0);
+  padding: 15px;
+  margin: 1%;
+  border-radius: 1.625rem;
+  cursor: pointer;
+  border: 2px solid rgb(21, 116, 46);
+}
+
+button:hover {
+  background-color: aliceblue;
+}
+
+.buttonContainer {
+  position: absolute;
+  top: 50%;
+  left: 72%;
+}
+.buttonContainer2 {
+  position: absolute;
+  top: 47.5%;
+  right: 75%;
+}
+
+.buttonContainer p {
+  position: relative;
+  font-size: small;
+  left: -4vw;
+  padding-bottom: 1%;
+  color: rgb(186, 186, 186);
+}
+
+.buttonContainer2 p {
+  position: relative;
+  font-size: small;
+  left: -4vw;
+  padding-bottom: 1%;
+  color: rgb(186, 186, 186);
+}
+.predictButton {
+  right: 10%;
+  top: 65%;
+  padding: 2%;
+  font-weight: bold;
+}
+.predictButton:hover {
+  transition: 250ms linear;
+  background-color: darkgreen;
+  color: aliceblue;
+}
+
+.footbar {
+  padding: 1%;
+  color: aliceblue;
+  width: auto;
+  height: auto;
+  background-color: black;
+}
+
+.introMessage {
+  padding-top: 20vh;
+}
+
+ul {
+  top: 0%;
+  position: absolute;
+  top: 10vh;
+  left: 35vw;
+  background-color: rgba(254, 254, 254);
+  list-style: none;
+  width: 35vw;
+  border: 1px solid rgb(114, 114, 114);
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+li {
+  padding: 2%;
+  padding-bottom: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bolder;
+  border-bottom: 1px solid rgba(169, 167, 167, 0.296);
+}
+
+li:hover {
+  background-color: rgba(250, 250, 250);
+  cursor: pointer;
+}
+
+hr.solid {
+  border-top: 1px;
 }
