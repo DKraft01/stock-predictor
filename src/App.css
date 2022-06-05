@@ -5,8 +5,12 @@
 .foot {
   text-align: center;
 }
+
+/* nav */
+
 nav {
   background-color: rgb(20, 20, 20);
+  display: flex;
 }
 
 .SearchBar {
@@ -22,23 +26,37 @@ nav {
   border-radius: 1.625rem;
   background-color: rgb(229, 229, 229);
 }
+@media (orientation: landscape) {
+  .HeaderImg {
+    height: 10vh;
+    display: inline-block;
+    padding: 1%;
+  }
 
-.HeaderImg {
-  width: auto;
-  height: 10vh;
-  display: inline-block;
-  padding: 1%;
+  .HeaderImg2 {
+    display: none;
+  }
 }
+
+@media (orientation: portrait) {
+  .HeaderImg2 {
+    height: 10vh;
+    display: inline-block;
+    padding: 1%;
+  }
+
+  .HeaderImg {
+    display: none;
+  }
+}
+
+/* main */
 
 .Container {
   display: flex;
-  padding: 1%;
-}
 
-p,
-h4 {
-  margin-left: 15vh;
-  margin-top: 2vw;
+  align-items: center;
+  justify-content: space-between;
 }
 
 h2 {
@@ -53,7 +71,14 @@ h2 {
   height: auto;
 }
 
-button {
+@media only screen and (min-width: 1000px) {
+  .content {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+  }
+}
+
+.button-compound {
   color: rgb(1, 1, 1);
 
   background-color: rgba(240, 248, 255, 0);
@@ -64,19 +89,19 @@ button {
   border: 2px solid rgb(21, 116, 46);
 }
 
+.compound-container {
+  display: flex;
+  justify-content: center;
+}
 button:hover {
   background-color: aliceblue;
 }
 
 .buttonContainer {
-  position: absolute;
-  top: 50%;
-  left: 72%;
-}
-.buttonContainer2 {
-  position: absolute;
-  top: 47.5%;
-  right: 75%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .buttonContainer p {
@@ -87,18 +112,15 @@ button:hover {
   color: rgb(186, 186, 186);
 }
 
-.buttonContainer2 p {
-  position: relative;
-  font-size: small;
-  left: -4vw;
-  padding-bottom: 1%;
-  color: rgb(186, 186, 186);
-}
 .predictButton {
   right: 10%;
   top: 65%;
-  padding: 2%;
+  padding: 1%;
+
   font-weight: bold;
+  background-color: transparent;
+  margin-bottom: 5%;
+  border-radius: 40px;
 }
 .predictButton:hover {
   transition: 250ms linear;
@@ -106,18 +128,31 @@ button:hover {
   color: aliceblue;
 }
 
+.chart {
+  display: flex;
+  justify-content: center;
+}
 .footbar {
   padding: 1%;
   color: aliceblue;
-  width: auto;
+  bottom: 0%;
+
   height: auto;
   background-color: black;
 }
 
 .introMessage {
-  padding-top: 20vh;
+  font-size: calc(1rem + 1vw);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
 }
 
+.introMessage div {
+  text-align: center;
+}
 ul {
   top: 0%;
   position: absolute;

@@ -26,8 +26,6 @@ export default function Prediction5(props) {
       sumXi2Yi += parseFloat(array[i] * (i + 1) ** 2);
     }
 
-    console.log(array);
-
     let A = [
       [p, sump, pp],
       [sump, pp, ppp],
@@ -44,15 +42,9 @@ export default function Prediction5(props) {
 
     // let V = [2, 11, 43];
 
-    console.log(A, V);
-
     let r = solve(A, V);
 
-    console.log(r);
-
     prediction = r[2] * (n * n) + r[1] * n + r[0];
-
-    console.log(prediction);
 
     function det(A) {
       var result = 0;

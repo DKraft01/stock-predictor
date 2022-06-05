@@ -1,16 +1,15 @@
-import './App.css';
-import Plot from 'react-plotly.js';
-import React, { useState, useEffect } from 'react';
-import Nav from './Nav';
-import Prediction from './Prediction';
-import Prediction2 from './Prediction2';
-import datosPrueba from './Datosprueba';
-import SuggestionList from './SuggestionList';
-import Footbar from './Footbar';
-import Prediction3 from './Prediction3';
-import Prediction4 from './prediction4';
-import Prediction5 from './Prediction5';
-import Prediction6 from './Prediction6';
+import "./App.css";
+import Plot from "react-plotly.js";
+import React, { useState, useEffect } from "react";
+import Nav from "./Nav";
+import Prediction from "./Prediction";
+
+import datosPrueba from "./Datosprueba";
+import SuggestionList from "./SuggestionList";
+import Footbar from "./Footbar";
+import Prediction3 from "./Prediction3";
+
+import Prediction5 from "./Prediction5";
 
 //API KEY: 2NHOXSDDTYHPW3CT
 //API PROFILE KEY: f7f0205eb1f5170e91f7a5b167688128;
@@ -19,25 +18,27 @@ function App() {
   //States
   const [StockXValue, setStockXValue] = useState();
   const [StockYValue, setStockYValue] = useState();
-  const [Symbol, setSymbol] = useState('');
+  const [Symbol, setSymbol] = useState("");
   const [Profile, setProfile] = useState();
-  const [TimeChart, setTimeChart] = useState('TIME_SERIES_DAILY');
-  const [TimeChartKey, setTimeChartKey] = useState('Time Series (Daily)');
+  const [TimeChart, setTimeChart] = useState("TIME_SERIES_DAILY");
+  const [TimeChartKey, setTimeChartKey] = useState("Time Series (Daily)");
   const [PredictionYValue, setPredictionYValue] = useState();
   const [PredNumber, setPredNumber] = useState();
   const [Dates, setDates] = useState(new Date());
-  const [AutoComp, setAutoComp] = useState('');
+  const [AutoComp, setAutoComp] = useState("");
   const [Suggestion, setSuggestion] = useState();
+  const [chartWidth, setchartWidth] = useState(800);
+  const [chartHeight, setchartHeight] = useState(600);
 
   //Iteration
-  const TimeChartWeekly = 'TIME_SERIES_WEEKLY';
-  const TimeChartKeyWeekly = 'Weekly Time Series';
+  const TimeChartWeekly = "TIME_SERIES_WEEKLY";
+  const TimeChartKeyWeekly = "Weekly Time Series";
 
-  const TimeChartDaily = 'TIME_SERIES_DAILY';
-  const TimeChartKeyDaily = 'Time Series (Daily)';
+  const TimeChartDaily = "TIME_SERIES_DAILY";
+  const TimeChartKeyDaily = "Time Series (Daily)";
 
-  const TimeChartMonthly = 'TIME_SERIES_MONTHLY';
-  const TimeChartKeyMonthly = 'Monthly Time Series';
+  const TimeChartMonthly = "TIME_SERIES_MONTHLY";
+  const TimeChartKeyMonthly = "Monthly Time Series";
 
   const tomorrow = new Date();
 
@@ -54,20 +55,20 @@ function App() {
         let StockYValue_ = [];
         for (let key in datosJson[TimeChartKey]) {
           StockXValue_.push(key);
-          StockYValue_.push(datosJson[TimeChartKey][key]['4. close']);
+          StockYValue_.push(datosJson[TimeChartKey][key]["4. close"]);
         }
         setStockXValue(StockXValue_);
         setStockYValue(StockYValue_);
         setPredictionYValue(StockYValue_.slice(0, 5).reverse());
       } catch (e) {
-        setStockXValue(['2022-04-12', '2022-04-11']);
+        setStockXValue(["2022-04-12", "2022-04-11"]);
         setStockYValue([190, 168.71]);
       }
     })();
 
     (async () => {
       try {
-        let apikey = 'f7f0205eb1f5170e91f7a5b167688128';
+        let apikey = "f7f0205eb1f5170e91f7a5b167688128";
         let ProfileURL = `https://financialmodelingprep.com/api/v3/profile/${Symbol}?apikey=${apikey}`;
 
         const profile = await fetch(ProfileURL);
@@ -102,7 +103,7 @@ function App() {
     setSymbol(e.target[0].value);
     setPredNumber();
     setDates(tomorrow.setDate(tomorrow.getDate() + 1));
-    e.target[0].value = '';
+    e.target[0].value = "";
   };
 
   const Weekly = () => {
@@ -138,10 +139,10 @@ function App() {
 
   const ClickList = (e) => {
     setSymbol(e);
-    setAutoComp('');
+    setAutoComp("");
   };
 
-  if (StockXValue && StockYValue && Profile[0] !== undefined) {
+  if (StockXValue && StockYValue && Profile && Profile[0] !== undefined) {
     return (
       <>
         <Nav submitingComp={submiting} Autocomp={AutoCompFunc}></Nav>
@@ -159,49 +160,46 @@ function App() {
             <p>Sector: {Profile[0].sector}</p>
             <p>IPO: {Profile[0].ipoDate}</p>
           </div>
-          <hr class="solid"></hr>
+          <hr className="solid"></hr>
 
           <div className="content">
-            <Plot
-              data={[
-                {
-                  x: StockXValue,
-                  y: StockYValue,
-                  type: 'scatter',
-                  mode: 'lines+markers',
-                  marker: { color: 'black' },
-                  name: 'Datos',
-                },
-
-                {
-                  y: [PredNumber, StockYValue[0]],
-                  x: [Dates, StockXValue[0]],
-
-                  mode: 'lines',
-                  name: 'Predicción',
-                  line: {
-                    dash: 'dot',
-                    width: 4,
+            <div className="chart">
+              <Plot
+                data={[
+                  {
+                    x: StockXValue,
+                    y: StockYValue,
+                    type: "scatter",
+                    mode: "lines+markers",
+                    marker: { color: "black" },
+                    name: "Datos",
                   },
-                },
-              ]}
-              layout={{ width: 800, height: 600, title: Symbol }}
-            />
-            <br></br>
+
+                  {
+                    y: [PredNumber, StockYValue[0]],
+                    x: [Dates, StockXValue[0]],
+
+                    mode: "lines",
+                    name: "Predicción",
+                    line: {
+                      dash: "dot",
+                      width: 4,
+                    },
+                  },
+                ]}
+                layout={{
+                  width: chartWidth,
+                  height: chartHeight,
+                  title: Symbol,
+                }}
+              />
+            </div>
             <SuggestionList
               inputlenght={AutoComp}
               sug={Suggestion}
               click={ClickList}
             ></SuggestionList>
-
-            <button onClick={Daily}>Diario</button>
-            <button onClick={Weekly}>Semanal</button>
-            <button onClick={Monthly}>Mensual</button>
-            {/* <input onChange={(e) => setAutoComp(e.target.value)}></input> */}
-
-            <br></br>
             <div className="buttonContainer">
-              <p>últimos 5 datos</p>
               <Prediction
                 mailman={PredictNumber}
                 arrData={PredictionYValue}
@@ -215,26 +213,17 @@ function App() {
                 mailman={PredictNumber}
               ></Prediction5>
             </div>
-            <div className="buttonContainer2">
-              <br />
-              <p>últimos 3 datos</p>
-              <Prediction2
-                mailman={PredictNumber}
-                arrData={PredictionYValue}
-              ></Prediction2>
-
-              <Prediction4
-                arrData={PredictionYValue}
-                mailman={PredictNumber}
-              ></Prediction4>
-
-              <Prediction6
-                arrData={PredictionYValue}
-                mailman={PredictNumber}
-              ></Prediction6>
+            <div className="compound-container">
+              <button className="button-compound" onClick={Daily}>
+                Diario
+              </button>
+              <button className="button-compound" onClick={Weekly}>
+                Semanal
+              </button>
+              <button className="button-compound" onClick={Monthly}>
+                Mensual
+              </button>
             </div>
-
-            {/* <p>{Profile[0].description}</p> */}
           </div>
         </div>
         <div className="foot">
@@ -247,12 +236,11 @@ function App() {
       <>
         <Nav submitingComp={submiting} Autocomp={AutoCompFunc}></Nav>
         <h1 className="introMessage">
-          <center>
-            <p>¡Bienvenido a StockPredictor!</p>
-            <br></br>
+          <div>Bienvenido a StockPredictor!</div>
+          <div>
             Ingrese por favor la etiqueta de cotización (Ticker symbol) en la
             barra superior
-          </center>
+          </div>
         </h1>
         {/* <input onChange={(e) => setAutoComp(e.target.value)}></input> */}
         <SuggestionList
