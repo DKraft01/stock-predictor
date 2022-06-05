@@ -36,6 +36,12 @@ nav {
   .HeaderImg2 {
     display: none;
   }
+
+  h4,
+  .footbar,
+  p {
+    font-size: calc(1rem + 0.2vw);
+  }
 }
 
 @media (orientation: portrait) {
@@ -47,6 +53,12 @@ nav {
 
   .HeaderImg {
     display: none;
+  }
+
+  h4,
+  .footbar,
+  p {
+    font-size: calc(0.5rem + 0.2vw);
   }
 }
 

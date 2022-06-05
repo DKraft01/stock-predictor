@@ -27,8 +27,6 @@ function App() {
   const [Dates, setDates] = useState(new Date());
   const [AutoComp, setAutoComp] = useState("");
   const [Suggestion, setSuggestion] = useState();
-  const [chartWidth, setchartWidth] = useState(800);
-  const [chartHeight, setchartHeight] = useState(600);
 
   //Iteration
   const TimeChartWeekly = "TIME_SERIES_WEEKLY";
@@ -163,37 +161,71 @@ function App() {
           <hr className="solid"></hr>
 
           <div className="content">
-            <div className="chart">
-              <Plot
-                data={[
-                  {
-                    x: StockXValue,
-                    y: StockYValue,
-                    type: "scatter",
-                    mode: "lines+markers",
-                    marker: { color: "black" },
-                    name: "Datos",
-                  },
-
-                  {
-                    y: [PredNumber, StockYValue[0]],
-                    x: [Dates, StockXValue[0]],
-
-                    mode: "lines",
-                    name: "Predicción",
-                    line: {
-                      dash: "dot",
-                      width: 4,
+            {window.innerWidth > 800 ? (
+              <div className="chart">
+                <Plot
+                  data={[
+                    {
+                      x: StockXValue,
+                      y: StockYValue,
+                      type: "scatter",
+                      mode: "lines+markers",
+                      marker: { color: "black" },
+                      name: "Datos",
                     },
-                  },
-                ]}
-                layout={{
-                  width: chartWidth,
-                  height: chartHeight,
-                  title: Symbol,
-                }}
-              />
-            </div>
+
+                    {
+                      y: [PredNumber, StockYValue[0]],
+                      x: [Dates, StockXValue[0]],
+
+                      mode: "lines",
+                      name: "Predicción",
+                      line: {
+                        dash: "dot",
+                        width: 4,
+                      },
+                    },
+                  ]}
+                  layout={{
+                    width: 800,
+                    height: 600,
+                    title: Symbol,
+                  }}
+                />
+              </div>
+            ) : (
+              <div className="chart">
+                <Plot
+                  data={[
+                    {
+                      x: StockXValue,
+                      y: StockYValue,
+                      type: "scatter",
+                      mode: "lines+markers",
+                      marker: { color: "black", size: 0.1 },
+                      name: "Datos",
+                    },
+
+                    {
+                      y: [PredNumber, StockYValue[0]],
+                      x: [Dates, StockXValue[0]],
+
+                      mode: "lines",
+                      name: "Predicción",
+                      line: {
+                        dash: "dot",
+                        width: 4,
+                      },
+                    },
+                  ]}
+                  layout={{
+                    width: window.innerWidth - 3,
+                    height: 260,
+                    title: Symbol,
+                  }}
+                />
+              </div>
+            )}
             <SuggestionList
               inputlenght={AutoComp}
               sug={Suggestion}
