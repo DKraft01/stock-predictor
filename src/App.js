@@ -153,8 +153,8 @@ function App() {
               alt={Profile[0].symbol}
             ></img>
             <h4>{Profile[0].symbol}</h4>
-            <p>Nombre: {Profile[0].companyName}</p>
-            <p>País: {Profile[0].country}</p>
+            <p>Name: {Profile[0].companyName}</p>
+            <p>Country: {Profile[0].country}</p>
             <p>Sector: {Profile[0].sector}</p>
             <p>IPO: {Profile[0].ipoDate}</p>
           </div>
@@ -171,7 +171,7 @@ function App() {
                       type: "scatter",
                       mode: "lines+markers",
                       marker: { color: "black" },
-                      name: "Datos",
+                      name: "Data",
                     },
 
                     {
@@ -179,7 +179,7 @@ function App() {
                       x: [Dates, StockXValue[0]],
 
                       mode: "lines",
-                      name: "Predicción",
+                      name: "Prediction",
                       line: {
                         dash: "dot",
                         width: 4,
@@ -203,7 +203,7 @@ function App() {
                       type: "scatter",
                       mode: "lines+markers",
                       marker: { color: "black", size: 0.1 },
-                      name: "Datos",
+                      name: "Data",
                     },
 
                     {
@@ -211,7 +211,7 @@ function App() {
                       x: [Dates, StockXValue[0]],
 
                       mode: "lines",
-                      name: "Predicción",
+                      name: "Prediction",
                       line: {
                         dash: "dot",
                         width: 4,
@@ -247,13 +247,13 @@ function App() {
             </div>
             <div className="compound-container">
               <button className="button-compound" onClick={Daily}>
-                Diario
+                Daily
               </button>
               <button className="button-compound" onClick={Weekly}>
-                Semanal
+                Weekly
               </button>
               <button className="button-compound" onClick={Monthly}>
-                Mensual
+                Monthly
               </button>
             </div>
           </div>
@@ -268,11 +268,8 @@ function App() {
       <>
         <Nav submitingComp={submiting} Autocomp={AutoCompFunc}></Nav>
         <h1 className="introMessage">
-          <div>Bienvenido a StockPredictor!</div>
-          <div>
-            Ingrese por favor la etiqueta de cotización (Ticker symbol) en la
-            barra superior
-          </div>
+          <div>Welcome to StockPredictor!</div>
+          <div>Please enter the Ticker Symbol in the search bar above</div>
         </h1>
         {/* <input onChange={(e) => setAutoComp(e.target.value)}></input> */}
         <SuggestionList

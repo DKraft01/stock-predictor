@@ -103,7 +103,7 @@ export default function Prediction5(props) {
 
   return (
     <button className="predictButton" onClick={() => props.mailman(prediction)}>
-      Cuadrados grado 2
+      Least Square 2 order
     </button>
   );
 }

@@ -30,7 +30,7 @@ export default function Prediction3(props) {
 
   return (
     <button className="predictButton" onClick={() => props.mailman(prediction)}>
-      Minimos Cuadrados
+      Least Square
     </button>
   );
 }

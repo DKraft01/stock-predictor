@@ -43,7 +43,7 @@ export default function Prediction(props) {
         className="predictButton"
         onClick={() => props.mailman(prediction)}
       >
-        Diferencias divididas
+        Divided differences
       </button>
     );
   }
